@@ -1,0 +1,13 @@
+.idea/
+/vendor/
+
+sites/*/settings*.php
+#sites/*/services*.yml
+
+sites/*/files
+sites/*/private
+
+*/settings*.php
+
+*/files
+*/private
