@@ -1,0 +1,9 @@
+name: Retics
+type: theme
+description: 'Retics theme - good solution for agencies'
+core_version_requirement: 8.*
+screenshot: retics.png
+logo: logo.png
+features:
+  - favicon
+  - logo
