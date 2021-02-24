@@ -1,0 +1,15 @@
+global-css:
+  version: VERSION
+  css:
+    theme:
+      css/bootstrap.css: {}
+      css/font-awesome.min.css: {}
+      css/style.css: {}
+      css/responsive.css: {}
+
+global-js:
+  version: '1.0'
+  js:
+    js/jquery-3.4.1.min.js: {}
+    js/bootstrap.js: {}
+    js/custom.js: {}
