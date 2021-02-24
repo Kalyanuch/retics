@@ -4,6 +4,7 @@ description: 'Retics theme - good solution for agencies'
 core: 8.x
 
 libraries:
+  - retics/poppins
   - retics/global-css
   - retics/global-js
 

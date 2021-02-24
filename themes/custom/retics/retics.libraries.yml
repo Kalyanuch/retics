@@ -12,4 +12,14 @@ global-js:
   js:
     js/jquery-3.4.1.min.js: {}
     js/bootstrap.js: {}
+    //unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js: {type: external, minified: true}
     js/custom.js: {}
+    //maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap: { type: external, attributes: { defer: true, async: true} }
+
+poppins:
+  license:
+    name: SIL Open Font License 1.1
+    url: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi$id=OFL
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap: { type: external }
