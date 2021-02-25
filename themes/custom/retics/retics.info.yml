@@ -13,7 +13,10 @@ logo: logo.png
 screenshot: retics.png
 
 regions:
+  mobile_logo: 'Mobile logo'
+  mobile_nav: 'Mobile navigation'
   header: Header
+  primary_menu: 'Primary menu'
   content: Content
   sidebar_first: 'Sidebar first'
   footer: Footer
