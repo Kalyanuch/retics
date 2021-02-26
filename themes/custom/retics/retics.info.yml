@@ -15,6 +15,7 @@ screenshot: retics.png
 regions:
   mobile_logo: 'Mobile logo'
   mobile_nav: 'Mobile navigation'
+  header_slider: 'Header slider'
   header: Header
   primary_menu: 'Primary menu'
   content: Content
