@@ -1,0 +1,45 @@
+<?php
+use Drupal\file\Entity\File;
+use Drupal\core\Url;
+
+function retics_form_system_theme_settings_alter(&$form, &$form_state) {
+  $form['theme_settings']['#open'] = FALSE;
+  $form['logo']['#open'] = FALSE;
+  $form['favicon']['#open'] = FALSE;
+
+  // Create a section for footer contact info
+  $form['retics_settings'] = [
+    '#type'         => 'details',
+    '#title'        => t('Theme settings'),
+    '#description'  => t('Advanced theme settings'),
+    '#weight'       => -999,
+    '#open'         => FALSE,
+  ];
+
+  $form['retics_settings']['retics_homepage_header_banner'] = [
+      '#type'              => 'managed_file',
+      '#title'             => t('Homepage header banner'),
+      '#description'       => t('This image will place in header slideshow on homepage'),
+      '#default_value'     => theme_get_setting('retics_homepage_header_banner'),
+      '#upload_location'   => 'public://',
+      '#upload_validators' => [
+        'file_validate_extensions' => array('gif png jpg jpeg'),
+      ],
+  ];
+}
+
+function retics_preprocess_page(&$variables) {
+  global $base_url;
+
+  $fid = theme_get_setting('retics_homepage_header_banner');//echo'<pre>';print_r($fid);exit;
+
+  if(!empty($fid)){
+    $file = File::load($fid[0]);
+
+    if(!empty($file)) {
+      $variables['retics_homepage_header_banner'] = $file->url();
+    } else {
+      $variables['retics_homepage_header_banner'] = $base_url . '/' . \Drupal::theme()->getActiveTheme()->getPath() . '/images/slider-img.jpg';
+    }
+  }
+}
