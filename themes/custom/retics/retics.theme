@@ -17,21 +17,77 @@ function retics_form_system_theme_settings_alter(&$form, &$form_state) {
   ];
 
   $form['retics_settings']['retics_homepage_header_banner'] = [
-      '#type'              => 'managed_file',
-      '#title'             => t('Homepage header banner'),
-      '#description'       => t('This image will place in header slideshow on homepage'),
-      '#default_value'     => theme_get_setting('retics_homepage_header_banner'),
-      '#upload_location'   => 'public://',
-      '#upload_validators' => [
-        'file_validate_extensions' => array('gif png jpg jpeg'),
-      ],
+    '#type'              => 'managed_file',
+    '#title'             => t('Homepage header banner'),
+    '#description'       => t('This image will place in header slideshow on homepage'),
+    '#default_value'     => theme_get_setting('retics_homepage_header_banner'),
+    '#upload_location'   => 'public://',
+    '#upload_validators' => [
+      'file_validate_extensions' => array('gif png jpg jpeg'),
+    ],
+  ];
+
+  $form['retics_settings']['retics_location'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Location'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_location'),
+  ];
+
+  $form['retics_settings']['retics_phone'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Phone number'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_phone'),
+  ];
+
+  $form['retics_settings']['retics_email'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Email address'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_email'),
+  ];
+
+  $form['retics_settings']['retics_facebook'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Facebook link'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_facebook'),
+  ];
+
+  $form['retics_settings']['retics_twitter'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Twitter link'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_twitter'),
+  ];
+
+  $form['retics_settings']['retics_instagram'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Instagram link'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_instagram'),
+  ];
+
+  $form['retics_settings']['retics_youtube'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Youtube link'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_youtube'),
+  ];
+
+  $form['retics_settings']['retics_copyright'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Copyright'),
+    '#description'       => t('This info will show in footer'),
+    '#default_value'     => theme_get_setting('retics_copyright'),
   ];
 }
 
 function retics_preprocess_page(&$variables) {
   global $base_url;
 
-  $fid = theme_get_setting('retics_homepage_header_banner');//echo'<pre>';print_r($fid);exit;
+  $fid = theme_get_setting('retics_homepage_header_banner');
 
   if(!empty($fid)){
     $file = File::load($fid[0]);
@@ -42,4 +98,19 @@ function retics_preprocess_page(&$variables) {
       $variables['retics_homepage_header_banner'] = $base_url . '/' . \Drupal::theme()->getActiveTheme()->getPath() . '/images/slider-img.jpg';
     }
   }
+}
+
+function retics_preprocess_html(&$variables) {
+  $variables['retics_location'] = theme_get_setting('retics_location');
+  $variables['retics_phone'] = theme_get_setting('retics_phone');
+  $variables['retics_email'] = theme_get_setting('retics_email');
+  $variables['retics_facebook'] = theme_get_setting('retics_facebook');
+  $variables['retics_twitter'] = theme_get_setting('retics_twitter');
+  $variables['retics_instagram'] = theme_get_setting('retics_instagram');
+  $variables['retics_youtube'] = theme_get_setting('retics_youtube');
+  $variables['retics_copyright'] = theme_get_setting('retics_copyright');
+
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
 }

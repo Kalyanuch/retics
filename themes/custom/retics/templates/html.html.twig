@@ -33,10 +33,102 @@
   <js-placeholder token="{{ placeholder_token|raw }}">
 </head>
 <body{{ attributes }}>
-
 {{ page_top }}
 {{ page }}
 {{ page_bottom }}
+<section class="info_section ">
+  <div class="info_container ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="info_contact ">
+            <div class="row">
+              <div class="col-md-3">
+                {% if retics_location %}
+                  <span class="link-box">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span>
+                      {{ retics_location }}
+                    </span>
+                  </span>
+                {% endif %}
+              </div>
+              <div class="col-md-5">
+                {% if retics_phone %}
+                  <a href="tel:{{ retics_phone }}" class="link-box">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span>
+                      {{ 'Call'|t }} {{ retics_phone }}
+                    </span>
+                  </a>
+                {% endif %}
+              </div>
+              <div class="col-md-4">
+                {% if retics_email %}
+                  <a href="mailto:{{ retics_email }}" class="link-box">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>
+                      {{ retics_email }}
+                    </span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5  col-lg-3 mx-auto">
+          <div class="info_form ">
+            <form action="#">
+              <input type="email" placeholder="Enter Your Email" />
+              <button>
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="info_logo">
+        <a class="navbar-brand" href="{{ path('<front>') }}">
+            <span>
+              {% if logopath %}
+              <img src="{{ logopath }}" />
+              {% endif %}
+              {% if site_name %}
+              {{ site_name }}
+              {% endif %}
+            </span>
+        </a>
+      </div>
+      <div class="social-box">
+        {% if retics_facebook %}
+        <a href="{{ retics_facebook }}">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if retics_twitter %}
+        <a href="{{ retics_twitter }}">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if retics_instagram %}
+        <a href="{{ retics_instagram }}">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if retics_youtube %}
+        <a href="{{ retics_youtube }}">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer_section">
+  <div class="container">
+    <p>&copy; <span id="displayYear"></span> {{ retics_copyright }}</p>
+  </div>
+</footer>
 <js-bottom-placeholder token="{{ placeholder_token|raw }}">
 </body>
 </html>
