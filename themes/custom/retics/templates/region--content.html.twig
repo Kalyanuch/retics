@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% if content %}
+  {% if retics_page_type == 'portfolio' %}
+    {%
+      set section_classes = [
+      'portfolio_section',
+      'layout_padding-bottom',
+      'layout_padding2-top',
+    ]
+    %}
+  {% endif %}
+
+  <section{{ attributes.addClass(section_classes) }}>
+    <div class="container">
+      {{ content }}
+    </div>
+  </section>
+{% endif %}

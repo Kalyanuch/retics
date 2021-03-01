@@ -114,3 +114,29 @@ function retics_preprocess_html(&$variables) {
   $variables['site_name'] = $config->get('name');
   $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
 }
+
+function retics_preprocess_region(&$variables) {
+  $variables['retics_page_type'] = '';
+
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if(substr_count($route_name, 'portfolio'))
+  {
+    //$variables['attributes']['class'][] = 'portfolio_section';
+    //$variables['attributes']['class'][] = 'layout_padding-bottom';
+    //$variables['attributes']['class'][] = 'layout_padding2-top';
+    $variables['retics_page_type'] = 'portfolio';
+  }
+}
+
+function retics_preprocess_page_title(&$variables) {
+  $variables['retics_page_type'] = '';
+
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if(substr_count($route_name, 'portfolio'))
+  {
+    $variables['retics_page_type'] = 'portfolio';
+  }
+
+}

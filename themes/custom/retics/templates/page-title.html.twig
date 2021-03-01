@@ -13,7 +13,7 @@
  */
 #}
 {% if title %}
-  <div class="heading-container">
+  <div class="heading-container{% if retics_page_type == 'portfolio' %} heading_center{% endif %}">
     <h2>{{ title }}</h2>
   </div>
 {% endif %}
