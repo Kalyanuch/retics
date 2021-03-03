@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override to display a two-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ */
+#}
+{% if content %}
+  <div class="row">
+
+    {% if content.first %}
+      <div class="col-md-6">
+        {{ content.first }}
+      </div>
+    {% endif %}
+
+    {% if content.second %}
+      <div class="col-md-6">
+        {{ content.second }}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}

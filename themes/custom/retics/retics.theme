@@ -127,6 +127,21 @@ function retics_preprocess_region(&$variables) {
     //$variables['attributes']['class'][] = 'layout_padding2-top';
     $variables['retics_page_type'] = 'portfolio';
   }
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if(method_exists($node, 'bundle'))
+  {
+    $typeName = $node->bundle();
+    //$typeLabel = $node->getTitle();
+
+    //echo $typeName;
+
+    if($typeName == 'page')
+    {
+      $variables['retics_page_type'] = 'page';
+    }
+  }
 }
 
 function retics_preprocess_page_title(&$variables) {
@@ -138,5 +153,4 @@ function retics_preprocess_page_title(&$variables) {
   {
     $variables['retics_page_type'] = 'portfolio';
   }
-
 }

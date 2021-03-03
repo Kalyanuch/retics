@@ -18,7 +18,16 @@
       set section_classes = [
       'portfolio_section',
       'layout_padding-bottom',
-      'layout_padding2-top',
+      'layout_padding2-top'
+    ]
+    %}
+  {% endif %}
+  {% if retics_page_type == 'page' %}
+    {%
+      set section_classes = [
+      'about_section',
+      'about_section1',
+      'layout_padding'
     ]
     %}
   {% endif %}
