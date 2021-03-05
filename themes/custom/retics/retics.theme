@@ -128,6 +128,16 @@ function retics_preprocess_region(&$variables) {
     $variables['retics_page_type'] = 'portfolio';
   }
 
+  if(substr_count($route_name, 'frontpage'))
+  {
+    $variables['retics_page_type'] = 'frontpage';
+  }
+
+  if(substr_count($route_name, 'blog'))
+  {
+    $variables['retics_page_type'] = 'blog';
+  }
+
   $node = \Drupal::routeMatch()->getParameter('node');
 
   if(method_exists($node, 'bundle'))
@@ -141,6 +151,11 @@ function retics_preprocess_region(&$variables) {
     {
       $variables['retics_page_type'] = 'page';
     }
+
+    if($typeName == 'article')
+    {
+      $variables['retics_page_type'] = 'article';
+    }
   }
 }
 
@@ -152,5 +167,14 @@ function retics_preprocess_page_title(&$variables) {
   if(substr_count($route_name, 'portfolio'))
   {
     $variables['retics_page_type'] = 'portfolio';
+  }
+}
+
+function retics_preprocess_image(&$variables) {
+  if (isset($variables['attributes']['width'])) {
+    unset($variables['attributes']['width']);
+  }
+  if (isset($variables['attributes']['height'])) {
+    unset($variables['attributes']['height']);
   }
 }

@@ -31,10 +31,22 @@
     ]
     %}
   {% endif %}
+  {% if retics_page_type == 'blog' or retics_page_type == 'article' %}
+    {%
+      set section_classes = [
+      'blog_section',
+      'layout_padding'
+    ]
+    %}
+  {% endif %}
 
+  {% if retics_page_type == 'frontpage' %}
+    {{ content }}
+  {% else %}
   <section{{ attributes.addClass(section_classes) }}>
     <div class="container">
       {{ content }}
     </div>
   </section>
+  {% endif %}
 {% endif %}

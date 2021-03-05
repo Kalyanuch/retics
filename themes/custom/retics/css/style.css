@@ -808,3 +808,48 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.pager .pager__items {
+  padding: 20px 0;
+}
+
+.pager__items {
+  clear: both;
+  text-align: center;
+}
+
+.pager__item--first, .pager__item--previous {
+  padding: 10px 10px 10px 0;
+}
+
+.pager__item {
+  padding: 10px 15px;
+  font-size: 0.929em;
+}
+
+.pager__item {
+  display: inline;
+  padding: 0.5em;
+}
+
+.pager__item a {
+  display: inline-block;
+  padding: 7px 25px;
+  background-color: #00adb5;
+  color: #ffffff;
+  border-radius: 0;
+  border: 1px solid #00adb5;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.pager__item a:hover {
+  background-color: transparent;
+  color: #00adb5;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
