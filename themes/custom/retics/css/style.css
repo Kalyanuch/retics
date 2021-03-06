@@ -853,3 +853,25 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.client_section .detail-box div {
+  position: relative;
+}
+
+.client_section .detail-box div i {
+  position: absolute;
+  font-size: 48px;
+  z-index: -1;
+  color: #eef1f5;
+}
+
+.client_section .detail-box div i.fa-quote-left {
+  top: -10px;
+  left: 0;
+}
+
+.client_section .detail-box div i.fa-quote-right {
+  bottom: 0;
+  right: 0;
+}
+
