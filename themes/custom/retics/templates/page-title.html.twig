@@ -12,7 +12,7 @@
  *   displayed after the main title tag that appears in the template.
  */
 #}
-{% if title %}
+{% if title and retics_page_type != 'contact' %}
   <div class="heading-container{% if retics_page_type == 'portfolio' %} heading_center{% endif %}">
     <h2>{{ title }}</h2>
   </div>

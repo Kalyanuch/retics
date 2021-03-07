@@ -39,8 +39,15 @@
     ]
     %}
   {% endif %}
+  {% if retics_page_type == 'contact' %}
+    {%
+      set section_classes = [
+      'contact_section',
+    ]
+    %}
+  {% endif %}
 
-  {% if retics_page_type == 'frontpage' %}
+  {% if retics_page_type == 'frontpage' or retics_page_type == 'contact' %}
     {{ content }}
   {% else %}
   <section{{ attributes.addClass(section_classes) }}>

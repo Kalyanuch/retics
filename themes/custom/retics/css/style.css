@@ -916,3 +916,7 @@ img {
 .info_section .navbar-brand img {
   display: none;
 }
+
+.form_container textarea {
+  width: 100%;
+}

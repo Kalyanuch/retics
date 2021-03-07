@@ -129,6 +129,18 @@
     <p>&copy; <span id="displayYear"></span> {{ retics_copyright }}</p>
   </div>
 </footer>
+<script type="text/javascript">
+  {% if retics_longtitude %}
+  const gMapLongtitude = {{ retics_longtitude }};
+  {% else %}
+  const gMapLongtitude = -74.005973;
+  {% endif %}
+  {% if retics_latitude %}
+  const gMapLatitude = {{ retics_latitude }};
+  {% else %}
+  const gMapLatitude = 40.712775;
+  {% endif %}
+</script>
 <js-bottom-placeholder token="{{ placeholder_token|raw }}">
 </body>
 </html>
