@@ -169,8 +169,6 @@ function retics_preprocess_region(&$variables) {
     $typeName = $node->bundle();
     //$typeLabel = $node->getTitle();
 
-    //echo $typeName;
-
     if($typeName == 'page')
     {
       $variables['retics_page_type'] = 'page';
@@ -209,19 +207,6 @@ function retics_preprocess_image(&$variables) {
 }
 
 function retics_form_contact_message_feedback_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-/*
-  foreach($form as $key => $data)
-  {
-    echo $key . '<br/>';
-    if($key == 'actions')
-    {
-      echo '<pre>';
-      print_r($data);
-      echo '</pre>';
-    }
-
-  }
-*/
   if(isset($form['field_email'])) {
     $form['field_email']['#prefix'] = '<div>';
     $form['field_email']['#suffix'] = '</div>';
