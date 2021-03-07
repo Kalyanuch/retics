@@ -875,3 +875,38 @@ img {
   right: 0;
 }
 
+.reviews-page-list ul {
+  width: 100%;
+  padding-left: 0;
+  margin-top: 50px;
+}
+
+.reviews-page-list li {
+  list-style: none;
+  text-align: center;
+  border-bottom: solid 1px #CCC;
+}
+
+.reviews-page-list .review-list-image {
+  width: 90px;
+  height: 90px;
+  margin: 10px auto;
+}
+
+.reviews-page-list .review-list-image img {
+  border-radius: 100%;
+}
+
+.reviews-page-list li h5 {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.reviews-page-list .review-list-content {
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+.info_section .navbar-brand img {
+  display: none;
+}
