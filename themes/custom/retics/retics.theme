@@ -133,7 +133,10 @@ function retics_preprocess_region(&$variables) {
     $variables['retics_page_type'] = 'frontpage';
   }
 
-  if(substr_count($route_name, 'blog') || substr_count($route_name, 'reviews'))
+  if(substr_count($route_name, 'blog')
+    || substr_count($route_name, 'reviews')
+    || substr_count($route_name, 'service')
+  )
   {
     $variables['retics_page_type'] = 'blog';
   }

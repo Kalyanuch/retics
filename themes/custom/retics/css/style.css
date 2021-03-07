@@ -875,13 +875,13 @@ img {
   right: 0;
 }
 
-.reviews-page-list ul {
+.reviews-page-list ul, .service-page-list ul {
   width: 100%;
   padding-left: 0;
   margin-top: 50px;
 }
 
-.reviews-page-list li {
+.reviews-page-list li, .service-page-list li {
   list-style: none;
   text-align: center;
   border-bottom: solid 1px #CCC;
@@ -893,7 +893,13 @@ img {
   margin: 10px auto;
 }
 
-.reviews-page-list .review-list-image img {
+.service-page-list .services-list-image {
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+}
+
+.reviews-page-list .review-list-image img, .service-page-list .services-list-image img {
   border-radius: 100%;
 }
 
