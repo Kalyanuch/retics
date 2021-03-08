@@ -82,6 +82,20 @@ function retics_form_system_theme_settings_alter(&$form, &$form_state) {
     '#description'       => t('This info will show in footer'),
     '#default_value'     => theme_get_setting('retics_copyright'),
   ];
+
+  $form['retics_settings']['retics_longtitude'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Google Map Center Longtitude'),
+    '#description'       => t('Google map center point'),
+    '#default_value'     => theme_get_setting('retics_longtitude'),
+  ];
+
+  $form['retics_settings']['retics_latitude'] = [
+    '#type'              => 'textfield',
+    '#title'             => t('Google Map Center Latitude'),
+    '#description'       => t('Google map center point'),
+    '#default_value'     => theme_get_setting('retics_latitude'),
+  ];
 }
 
 function retics_preprocess_page(&$variables) {
@@ -109,6 +123,8 @@ function retics_preprocess_html(&$variables) {
   $variables['retics_instagram'] = theme_get_setting('retics_instagram');
   $variables['retics_youtube'] = theme_get_setting('retics_youtube');
   $variables['retics_copyright'] = theme_get_setting('retics_copyright');
+  $variables['retics_longtitude'] = theme_get_setting('retics_longtitude');
+  $variables['retics_latitude'] = theme_get_setting('retics_latitude');
 
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
@@ -141,14 +157,17 @@ function retics_preprocess_region(&$variables) {
     $variables['retics_page_type'] = 'blog';
   }
 
+  if(substr_count($route_name, 'contact'))
+  {
+    $variables['retics_page_type'] = 'contact';
+  }
+
   $node = \Drupal::routeMatch()->getParameter('node');
 
   if(method_exists($node, 'bundle'))
   {
     $typeName = $node->bundle();
     //$typeLabel = $node->getTitle();
-
-    //echo $typeName;
 
     if($typeName == 'page')
     {
@@ -171,6 +190,11 @@ function retics_preprocess_page_title(&$variables) {
   {
     $variables['retics_page_type'] = 'portfolio';
   }
+
+  if(substr_count($route_name, 'contact'))
+    {
+      $variables['retics_page_type'] = 'contact';
+    }
 }
 
 function retics_preprocess_image(&$variables) {
@@ -180,4 +204,23 @@ function retics_preprocess_image(&$variables) {
   if (isset($variables['attributes']['height'])) {
     unset($variables['attributes']['height']);
   }
+}
+
+function retics_form_contact_message_feedback_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if(isset($form['field_email'])) {
+    $form['field_email']['#prefix'] = '<div>';
+    $form['field_email']['#suffix'] = '</div>';
+    $form['field_email']['widget']['#title'] = '';
+    $form['field_email']['widget'][0]['#title'] = '';
+    $form['field_email']['widget'][0]['value']['#title'] = '';
+    //$form['field_email']['widget'][0]['value']['#size'] = '10';
+  }
+
+  if(isset($form['field_message']))
+  {
+    $form['field_message']['widget'][0]['value']['#attributes']['class'][] = 'message-box';
+  }
+
+  if(isset($form['actions']['preview']))
+    unset($form['actions']['preview']);
 }

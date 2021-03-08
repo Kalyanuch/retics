@@ -29,8 +29,8 @@ var $grid = $(".grid").isotope({
 
 function myMap() {
     var mapProp = {
-        center: new google.maps.LatLng(40.712775, -74.005973),
-        zoom: 18,
+        center: new google.maps.LatLng(gMapLatitude, gMapLongtitude),
+        zoom: 17,
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
