@@ -920,3 +920,22 @@ img {
 .form_container textarea {
   width: 100%;
 }
+
+.service_item_wrapper .heading-container {
+  margin-bottom: 30px;
+}
+
+.service_item_wrapper .detail-box {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.service_item_wrapper .img-box {
+  text-align: center;
+}
+
+.service_item_wrapper .img-box img {
+  width: 300px;
+  height: auto;
+  border-radius: 100%;
+}

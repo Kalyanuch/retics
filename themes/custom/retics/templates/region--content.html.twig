@@ -46,6 +46,15 @@
     ]
     %}
   {% endif %}
+  {% if retics_page_type == 'service' %}
+    {%
+      set section_classes = [
+      'service_item_wrapper',
+      'blog_section',
+      'layout_padding'
+    ]
+    %}
+  {% endif %}
 
   {% if retics_page_type == 'frontpage' or retics_page_type == 'contact' %}
     {{ content }}
