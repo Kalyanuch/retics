@@ -1,0 +1,6 @@
+name: Weather Informer
+type: module
+core: '8.x'
+description: 'Displays weather informer block!'
+version: 1.0
+package: My Custom Modules

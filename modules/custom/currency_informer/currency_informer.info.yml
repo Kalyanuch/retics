@@ -1,0 +1,7 @@
+name: Currency Informer
+type: module
+core: '8.x'
+description: 'Displays currency informer block!'
+version: 1.0
+package: My Custom Modules
+configure: currency_informer.admin_settings

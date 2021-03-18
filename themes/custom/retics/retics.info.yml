@@ -21,6 +21,8 @@ regions:
   content: Content
   sidebar_first: 'Sidebar first'
   footer: Footer
+  bottom_left: 'Bottom left'
+  bottom_right: 'Bottom right'
 
 features:
   - favicon

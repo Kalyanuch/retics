@@ -1,0 +1,13 @@
+currency_informer.settings:
+  type: config_object
+  label: 'Currency Informer Block Settings'
+  mapping:
+    informer_type:
+      type: string
+      label: 'Type of informer to display'
+    informer_color:
+      type: string
+      label: 'Styling color of informer'
+    informer_width:
+      type: int
+      label: 'Informer block width'

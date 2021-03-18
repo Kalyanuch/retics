@@ -1,0 +1,7 @@
+currency_informer.admin_settings:
+  path: '/admin/config/content/currency-informer'
+  defaults:
+    _form: '\Drupal\currency_informer\Form\CurrencyInformerSettingsForm'
+    _title: 'Currency Informer Settings'
+  requirements:
+    _permission: 'administer rsvplist'
